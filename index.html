@@ -26,6 +26,25 @@
             <li class="nav__link link__hover-effect">Review</li>
             <li class="nav__link nav__link--btn">Contact</li>
           </ul>
+          <button class="btn__menu" onclick="openMenu()">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="menu__backdrop">
+            <button class="btn__menu btn__menu--close" onclick="closeMenu()">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+            <ul class="menu__links">
+              <li class="menu__list">
+                <a href="#" class="menu__link" onclick="closeMenu()">Home</a>
+              </li>
+              <li class="menu__list">
+                <a href="#features" class="menu__link" onclick="closeMenu()"
+                  >Review</a
+                >
+              </li>
+              <li class="menu__list">
+                <a href="" class="menu__link">Contact</a>
+              </li>
         </div>
       </nav>
       <header>
@@ -35,32 +54,31 @@
             type="text"
             class="search__bar"
             value=""
-            onchange="acceptSearch(event)"
+            placeholder="search by title"
+            onchange="acceptSearchTitle(event)"
           />
         </div>
       </header>
-      
     </section>
     <section id="movies">
       <div class="movie__list">
-        <!-- <div class="movie">
-          <div class="movie__wrapper">
-            <figure>
-              <img
-                src="https://m.media-amazon.com/images/M/MV5BZGRiMDE1NTMtMThmZS00YjE4LWI1ODQtNjRkZGZlOTg2MGE1XkEyXkFqcGc@._V1_SX300.jpg"
-              />
-            </figure>
-            <div class="movie__overlay">
-              <h1 class="movie__overlay--title">The Fast and the Furious</h1>
-              <h2 class="movie__overlay--year">2001</h2>
-            </div>
+        <div class="movie__wrapper movie__wrapper--title">
+          <div class="">
+            <i class="fas fa-spinner movies__loading--spinner"></i>
           </div>
-        </div> -->
-        <div class="">
-        <i class="fas fa-spinner movies__loading--spinner"></i>
+        </div>
       </div>
-      </div>
-      
     </section>
+    <footer>
+      <div class="company__name--wrapper">
+        <figure class="nav__logo--wrapper">
+          <i class="fa-solid fa-film nav__logo"></i>
+        </figure>
+        <h1 class="company__name">Filmtastic</h1>
+      </div>
+      <div class="footer__copyright">
+        Copyright &copy; 2025 Tayler Westercamp
+      </div>
+    </footer>
   </body>
 </html>

@@ -8,10 +8,21 @@
 }
 
 section {
-    background: linear-gradient(to bottom, #7e1616, #000000);
-    
-    background-size: cover;
-    height: 100%;
+    width: 100%;
+}
+
+.fa-spinner {
+    animation: rotate 600ms infinite linear;
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: rotate(0);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
 }
 
 li {
@@ -47,6 +58,11 @@ NAV
 
 */
 
+#landing__page {
+    background: linear-gradient(to top, #7e1616, #000000);
+    background-size: cover;
+    height: 100%;
+}
 .nav__container {
     height: 100px;
     width: 100%;
@@ -122,18 +138,78 @@ NAV
 
 /* 
 
+MENU
+
+*/
+
+.btn__menu {
+    padding-right: 24px;
+    background-color: transparent;
+    font-size: 40px;
+    text-align: center;
+    border: none;
+    color: #fcc252;
+    display: none;
+}
+
+.menu__backdrop {
+    position: absolute;
+    background-color: #000000;
+    height: 300px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+    transition: all 300ms ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.menu--open .menu__backdrop {
+    visibility: visible;
+    opacity: 1;
+}
+
+.menu--open {
+    overflow-y: hidden;
+}
+
+.menu__links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu__list {
+    padding: 32px 0;
+}
+
+.menu__link {
+    font-size: 28px;
+    color: #fcc252;
+}
+
+.btn__menu--close {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    padding: 8px;
+    color: #fcc252;
+}
+
+/* 
+
 HEADER 
 
 */
 
-header {
-    display: flex;
-    justify-content: center;
-}
-
 .search__container {
     width: 100%;
     max-width: 1200px;
+    padding-top: 24px;
     padding-bottom: 24px;
     margin: 0 auto;
     display: flex;
@@ -147,19 +223,16 @@ header {
 }
 
 .search__bar {
-    width: 100%;
+    width: 90%;
     max-width: 600px;
     height: 48px;
     border-radius: 25px;
     padding-left: 20px;
+    margin: 24px 0;
     font-size: 18px;
     color: #fcc252;
     border: solid #fcc252 2px;
     background-color: rgba(0, 0, 0, 0.37);
-}
-
-.search__bar:focus {
-    border: none;
 }
 
 /* 
@@ -169,38 +242,29 @@ MOVIES
 */
 
 #movies {
-    background-image: url(./assets/movie-background.jpg);
-    background-size:  100%;
-    background-repeat: repeat;
-    background-position: center;
-    backdrop-filter: blur(4px);
+    background: linear-gradient(to bottom, #7e1616, #000000);
 }
 
 .movie__list {
+    overflow: scroll;
+    overflow-y: hidden;
+    scrollbar-color: #7e1616 #000000;
     width: 100%;
-    max-width: 1200px;
-    height: 100%;
-    min-height: 1000px;
-    margin: 0 auto;
-    background-color: rgba(0, 0, 0, 0.596);
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.movie {
-    width: calc((100% / 4));
-    margin: 15px;
+    height: 514px;
 }
 
 .movie__wrapper {
-    overflow: hidden;
+    width: 3300px;
+}
+.movie {
+    width: 300px;
+    height: 450px;
+    float: left;
+    margin: 15px;
     position: relative;
-    border-radius: 8px;
 }
 
 img {
-    width: 100%;
     transition: all 600ms ease;
 }
 
@@ -220,6 +284,11 @@ img {
     transition: all 300ms ease;
 }
 
+.movie__overlay--title,
+.movie__overlay--year {
+    padding: 12px;
+}
+
 .movie:hover {
     transform: scale(1.02);
 }
@@ -232,6 +301,12 @@ img {
     opacity: 1;
 }
 
+/* 
+
+LOADING STATE 
+
+*/
+
 .movies__loading {
     display: flex;
     align-items: flex-start;
@@ -239,26 +314,41 @@ img {
     padding-top: 60px;
     font-size: 60px;
     color: #fcc252;
-  }
+}
   
-  .movies__loading--spinner {
+.movies__loading--spinner {
     display: none !important;
-  }
+}
   
-  .movies__loading .movies__loading--spinner {
+.movies__loading .movies__loading--spinner {
     display: block !important;
-  }
+}
 
-  .fa-spinner {
-    animation: rotate 600ms infinite linear;
-  }
+/* 
   
-  @keyframes rotate {
-    0% {
-      transform: rotate(0);
-    }
+FOOTER
   
-    100% {
-      transform: rotate(360deg);
+*/
+  
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    height: 280px;
+}
+
+.footer__copyright {
+    color: #fcc252;
+}
+
+
+@media (max-width: 550px) {
+    .nav__link--list {
+        display: none;
     }
-  }
+    .btn__menu {
+        display: block;
+    }
+}
