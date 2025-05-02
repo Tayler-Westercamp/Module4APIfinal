@@ -1,13 +1,16 @@
 let movies;
 
 async function getMovies(search) {
+    let imgBox = document.querySelector('.movie__list')
+    loadingState(imgBox)
     movies = await fetch(`https://www.omdbapi.com/?s=${search}&apikey=a91ed9b`)
     let moviesJson = await movies.json();
-    pushHTML(moviesJson)
+    endLoadingState(imgBox)
+    pushHTML(moviesJson, imgBox)
 }
 
-function pushHTML(moviesJson) {
-    let imgBox = document.querySelector('.movie__list')
+function pushHTML(moviesJson, imgBox) { 
+    
     imgBox.innerHTML = moviesJson.Search.map(movie => `
         <div class="movie">
           <div class="movie__wrapper">
@@ -29,4 +32,14 @@ function acceptSearch(event) {
     let search = event.target.value
     console.log(search)
     getMovies(search)
+}
+
+function loadingState(imgBox) {
+    console.log(1)
+    imgBox.classList +=  ` movies__loading`
+}
+
+function endLoadingState(imgBox) {
+    console.log(1)
+    imgBox.classList.remove(`movies__loading`)
 }

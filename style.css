@@ -8,8 +8,8 @@
 }
 
 section {
-    background-color: #7e1616;
-    background-image: url(./assets/wp6736940.webp);
+    background: linear-gradient(to bottom, #7e1616, #000000);
+    
     background-size: cover;
     height: 100%;
 }
@@ -168,18 +168,24 @@ MOVIES
 
 */
 
+#movies {
+    background-image: url(./assets/movie-background.jpg);
+    background-size:  100%;
+    background-repeat: repeat;
+    background-position: center;
+    backdrop-filter: blur(4px);
+}
+
 .movie__list {
     width: 100%;
     max-width: 1200px;
     height: 100%;
     min-height: 1000px;
     margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.596);
     display: flex;
     justify-content: space-around;
-    border-radius: 25px;
-    border: solid #fcc252 2px;
     flex-wrap: wrap;
-    background-color: rgba(0, 0, 0, 0.267);
 }
 
 .movie {
@@ -222,7 +228,37 @@ img {
     filter: blur(4px);
 }
     
-
 .movie:hover .movie__overlay{
     opacity: 1;
 }
+
+.movies__loading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 60px;
+    font-size: 60px;
+    color: #fcc252;
+  }
+  
+  .movies__loading--spinner {
+    display: none !important;
+  }
+  
+  .movies__loading .movies__loading--spinner {
+    display: block !important;
+  }
+
+  .fa-spinner {
+    animation: rotate 600ms infinite linear;
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: rotate(0);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
