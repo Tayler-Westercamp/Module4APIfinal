@@ -50,22 +50,26 @@
       <header>
         <div class="search__container">
           <h1 class="search__title">Find your next favorite movie!</h1>
-          <input
+          <div class="search__bar--container">
+            <input
             type="text"
             class="search__bar"
             value=""
             placeholder="search by title"
             onchange="acceptSearchTitle(event)"
           />
+          <div class="search__btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <i class="fas fa-spinner movies__loading--spinner"></i>
+          </div>
+          
         </div>
       </header>
     </section>
     <section id="movies">
       <div class="movie__list">
         <div class="movie__wrapper movie__wrapper--title">
-          <div class="">
-            <i class="fas fa-spinner movies__loading--spinner"></i>
-          </div>
         </div>
       </div>
     </section>
