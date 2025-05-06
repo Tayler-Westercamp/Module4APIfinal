@@ -1,4 +1,5 @@
-let movies;
+let moviesJson;
+let imgBox;
 
 function openMenu() {
     document.body.classList += "menu--open"
@@ -9,18 +10,17 @@ function closeMenu() {
 }
 
 async function getMoviesTitle(search) {
-    let imgBox = document.querySelector('.movie__wrapper--title')
+    imgBox = document.querySelector('.movie__wrapper--title')
     loadingState()
-    movies = await fetch(`https://www.omdbapi.com/?s=${search}&apikey=a91ed9b`)
-    let moviesJson = await movies.json();
-    console.log(moviesJson)
+    let movies = await fetch(`https://www.omdbapi.com/?s=${search}&apikey=a91ed9b`)
+    let moviesJsonWide = await movies.json();
+    moviesJson = moviesJsonWide.Search
     endLoadingState()
     pushHTML(moviesJson, imgBox)
 }
 
 function acceptSearchTitle(event) {
     let search = event.target.value
-    console.log(search)
     getMoviesTitle(search)
 }
 
@@ -33,7 +33,7 @@ function endLoadingState() {
 }
 
 function pushHTML(moviesJson, imgBox) {   
-    imgBox.innerHTML = moviesJson.Search.map(movie => `
+    imgBox.innerHTML = moviesJson.map(movie => `
         <div class="movie">
             <figure>
               <img
@@ -46,4 +46,16 @@ function pushHTML(moviesJson, imgBox) {
             </div>
         </div>
         `)
+}
+
+function filterMovies(event) {
+    let filter = event.target.value;
+    let filterMovies;
+    console.log(filterMovies)
+    if (filter === "NEW_TO_OLD"){
+        filterMovies = moviesJson.sort((a, b) => b.Year - a.Year)
+    }else {
+        filterMovies = moviesJson.sort((a, b) => a.Year - b.Year)
+    }
+    pushHTML(filterMovies, imgBox)
 }

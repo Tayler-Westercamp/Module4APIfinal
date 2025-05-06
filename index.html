@@ -63,7 +63,11 @@
           </div>
           <i class="fas fa-spinner movies__loading--spinner"></i>
           </div>
-          
+          <select id="filter" onchange="filterMovies(event)">
+            <option value disabled selected>Sort</option>
+            <option value="NEW_TO_OLD">Newest to Oldest</option>
+            <option value="OLD_TO_NEW">Oldest to Newest</option>
+          </select>
         </div>
       </header>
     </section>

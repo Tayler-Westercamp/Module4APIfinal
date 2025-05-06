@@ -260,6 +260,15 @@ HEADER
     color: #fff;
 }
 
+#filter {
+    background-color: #fcc252;
+    border: none;
+    padding: 6px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
 /* 
 
 MOVIES 
@@ -269,25 +278,26 @@ MOVIES
 #movies {
     background-image: url(./assets/movie-background.jpg);
     background-size: contain;
-    /* background: linear-gradient(to bottom, #7e1616, #000000); */
+    width: 100%;
+    min-height: 2000px;
 }
 
 .movie__list {
     background-color: #00000077;
-    overflow: scroll;
-    overflow-y: hidden;
-    scrollbar-color: #7e1616 #000000;
     width: 100%;
-    height: 514px;
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
 }
 
 .movie__wrapper {
-    width: 3300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 .movie {
     width: 300px;
-    height: 450px;
-    float: left;
     margin: 15px;
     position: relative;
 }
